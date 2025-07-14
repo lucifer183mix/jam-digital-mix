@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Jam Digital Sederhana</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background: #222;
+        }
+        #clock {
+            font-size: 5em;
+            color: #00ff99;
+            font-family: 'Courier New', Courier, monospace;
+            background: #111;
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #00ff99aa;
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">00:00:00</div>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const jam = String(now.getHours()).padStart(2, '0');
+            const menit = String(now.getMinutes()).padStart(2, '0');
+            const detik = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${jam}:${menit}:${detik}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
